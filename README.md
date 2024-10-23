@@ -2,6 +2,8 @@
 
 Download file in background or foreground
 
+WIP: the plugin is not yet ready for production
+
 ## Install
 
 ```bash

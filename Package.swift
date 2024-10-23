@@ -10,14 +10,16 @@ let package = Package(
             targets: ["CapacitorDownloaderPlugin"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", branch: "main")
+        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", branch: "main"),
+        .package(url: "https://github.com/mzeeshanid/MZDownloadManager.git", from: "3.3.0")
     ],
     targets: [
         .target(
             name: "CapacitorDownloaderPlugin",
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
-                .product(name: "Cordova", package: "capacitor-swift-pm")
+                .product(name: "Cordova", package: "capacitor-swift-pm"),
+                "MZDownloadManager"
             ],
             path: "ios/Sources/CapacitorDownloaderPlugin"),
         .testTarget(
