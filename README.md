@@ -211,3 +211,7 @@ removeAllListeners() => Promise<void>
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>
+
+### Credit
+
+This plugin was inspired from: https://github.com/kesha-antonov/react-native-background-downloader
