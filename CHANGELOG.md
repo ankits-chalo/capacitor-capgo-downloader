@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/Cap-go/capacitor-downloader/compare/0.0.7...0.0.9) (2024-10-25)
+
+
+### Features
+
+* add package lock ios ([27e238f](https://github.com/Cap-go/capacitor-downloader/commit/27e238f1461b68381851103f58edc888c0344ac8))
+
+
+### Bug Fixes
+
+* add android and ios cache ([e4ea1da](https://github.com/Cap-go/capacitor-downloader/commit/e4ea1dad4e3bb7f6a405fdb87109c973ea6b249c))
+* artefact issue ([c84c0b4](https://github.com/Cap-go/capacitor-downloader/commit/c84c0b4532cedc05481c648afff8052c2c326c92))
+* deps issue ([7e91427](https://github.com/Cap-go/capacitor-downloader/commit/7e91427829473de5b41b3c400391e28563ae30ba))
+* github push ([cd82789](https://github.com/Cap-go/capacitor-downloader/commit/cd82789cc9d05d9d1e98cbd4b6fd77b9029fc7f8))
+* issues push ([15ceaf6](https://github.com/Cap-go/capacitor-downloader/commit/15ceaf68116cacde5efff7192105d956486d7267))
+* publish ([fa3a091](https://github.com/Cap-go/capacitor-downloader/commit/fa3a09140434d3a262ab15981e181e80e613b970))
+* publish to repo ([05e897c](https://github.com/Cap-go/capacitor-downloader/commit/05e897cc7e5277c498788307a65ebed4b9ae8c54))
+* try correct push ([0bc5439](https://github.com/Cap-go/capacitor-downloader/commit/0bc54395953c9b6ae982c527f1c69ebe0c1bbbea))
+* try new build and bumb system ([192367c](https://github.com/Cap-go/capacitor-downloader/commit/192367c47fe4b76fc552e78aaca42181dab19240))
+* updates versions ([79ac707](https://github.com/Cap-go/capacitor-downloader/commit/79ac7078da8a8c633c7f61fc1f96d3dac5881df2))
+* use better cache ([8bfaa5c](https://github.com/Cap-go/capacitor-downloader/commit/8bfaa5c8e1adbfd8c2b86fc99fa5d97842b52330))
+* use cache v4 ([da7b4f1](https://github.com/Cap-go/capacitor-downloader/commit/da7b4f1fb7f6b2aa3982bec1029f6f77ec4f407a))
+
 ### [0.0.8](https://github.com/Cap-go/capacitor-downloader/compare/0.0.7...0.0.8) (2024-10-25)
 
 
