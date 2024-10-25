@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/Cap-go/capacitor-downloader/compare/0.0.5...0.0.6) (2024-10-25)
+
+
+### Bug Fixes
+
+* try other way ([0d0d4cb](https://github.com/Cap-go/capacitor-downloader/commit/0d0d4cbd0411d66a905de38a98ba8bfd8cd48405))
+
 ### [0.0.5](https://github.com/Cap-go/capacitor-downloader/compare/0.0.4...0.0.5) (2024-10-25)
 
 
