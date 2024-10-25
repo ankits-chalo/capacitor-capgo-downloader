@@ -42,14 +42,14 @@ npx cap sync
 ### download(...)
 
 ```typescript
-download(options: DownloadOptions) => Promise<DownloadTask>
+download(options: DownloadOptions) => any
 ```
 
 | Param         | Type                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#downloadoptions">DownloadOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#downloadtask">DownloadTask</a>&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -57,12 +57,14 @@ download(options: DownloadOptions) => Promise<DownloadTask>
 ### pause(...)
 
 ```typescript
-pause(id: string) => Promise<void>
+pause(id: string) => any
 ```
 
 | Param    | Type                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
+
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -70,12 +72,14 @@ pause(id: string) => Promise<void>
 ### resume(...)
 
 ```typescript
-resume(id: string) => Promise<void>
+resume(id: string) => any
 ```
 
 | Param    | Type                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
+
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -83,12 +87,14 @@ resume(id: string) => Promise<void>
 ### stop(...)
 
 ```typescript
-stop(id: string) => Promise<void>
+stop(id: string) => any
 ```
 
 | Param    | Type                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
+
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -96,14 +102,14 @@ stop(id: string) => Promise<void>
 ### checkStatus(...)
 
 ```typescript
-checkStatus(id: string) => Promise<DownloadTask>
+checkStatus(id: string) => any
 ```
 
 | Param    | Type                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
 
-**Returns:** <code>Promise&lt;<a href="#downloadtask">DownloadTask</a>&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -111,14 +117,14 @@ checkStatus(id: string) => Promise<DownloadTask>
 ### getFileInfo(...)
 
 ```typescript
-getFileInfo(path: string) => Promise<{ size: number; type: string; }>
+getFileInfo(path: string) => any
 ```
 
 | Param      | Type                |
 | ---------- | ------------------- |
 | **`path`** | <code>string</code> |
 
-**Returns:** <code>Promise&lt;{ size: number; type: string; }&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -126,7 +132,7 @@ getFileInfo(path: string) => Promise<{ size: number; type: string; }>
 ### addListener('downloadProgress', ...)
 
 ```typescript
-addListener(eventName: 'downloadProgress', listenerFunc: (progress: { id: string; progress: number; }) => void) => Promise<PluginListenerHandle>
+addListener(eventName: 'downloadProgress', listenerFunc: (progress: { id: string; progress: number; }) => void) => any
 ```
 
 | Param              | Type                                                                  |
@@ -134,7 +140,7 @@ addListener(eventName: 'downloadProgress', listenerFunc: (progress: { id: string
 | **`eventName`**    | <code>'downloadProgress'</code>                                       |
 | **`listenerFunc`** | <code>(progress: { id: string; progress: number; }) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -142,7 +148,7 @@ addListener(eventName: 'downloadProgress', listenerFunc: (progress: { id: string
 ### addListener('downloadCompleted', ...)
 
 ```typescript
-addListener(eventName: 'downloadCompleted', listenerFunc: (result: { id: string; }) => void) => Promise<PluginListenerHandle>
+addListener(eventName: 'downloadCompleted', listenerFunc: (result: { id: string; }) => void) => any
 ```
 
 | Param              | Type                                              |
@@ -150,7 +156,7 @@ addListener(eventName: 'downloadCompleted', listenerFunc: (result: { id: string;
 | **`eventName`**    | <code>'downloadCompleted'</code>                  |
 | **`listenerFunc`** | <code>(result: { id: string; }) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -158,7 +164,7 @@ addListener(eventName: 'downloadCompleted', listenerFunc: (result: { id: string;
 ### addListener('downloadFailed', ...)
 
 ```typescript
-addListener(eventName: 'downloadFailed', listenerFunc: (error: { id: string; error: string; }) => void) => Promise<PluginListenerHandle>
+addListener(eventName: 'downloadFailed', listenerFunc: (error: { id: string; error: string; }) => void) => any
 ```
 
 | Param              | Type                                                            |
@@ -166,7 +172,7 @@ addListener(eventName: 'downloadFailed', listenerFunc: (error: { id: string; err
 | **`eventName`**    | <code>'downloadFailed'</code>                                   |
 | **`listenerFunc`** | <code>(error: { id: string; error: string; }) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -174,22 +180,15 @@ addListener(eventName: 'downloadFailed', listenerFunc: (error: { id: string; err
 ### removeAllListeners()
 
 ```typescript
-removeAllListeners() => Promise<void>
+removeAllListeners() => any
 ```
+
+**Returns:** <code>any</code>
 
 --------------------
 
 
 ### Interfaces
-
-
-#### DownloadTask
-
-| Prop           | Type                                                                 |
-| -------------- | -------------------------------------------------------------------- |
-| **`id`**       | <code>string</code>                                                  |
-| **`progress`** | <code>number</code>                                                  |
-| **`state`**    | <code>'PENDING' \| 'RUNNING' \| 'PAUSED' \| 'DONE' \| 'ERROR'</code> |
 
 
 #### DownloadOptions
@@ -204,11 +203,20 @@ removeAllListeners() => Promise<void>
 | **`priority`**    | <code>'high' \| 'normal' \| 'low'</code> |
 
 
+#### DownloadTask
+
+| Prop           | Type                                                                 |
+| -------------- | -------------------------------------------------------------------- |
+| **`id`**       | <code>string</code>                                                  |
+| **`progress`** | <code>number</code>                                                  |
+| **`state`**    | <code>'PENDING' \| 'RUNNING' \| 'PAUSED' \| 'DONE' \| 'ERROR'</code> |
+
+
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
-| ------------ | ----------------------------------------- |
-| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
+| Prop         | Type                      |
+| ------------ | ------------------------- |
+| **`remove`** | <code>() =&gt; any</code> |
 
 </docgen-api>
 
