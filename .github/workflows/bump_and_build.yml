@@ -135,6 +135,16 @@ jobs:
         run: pnpm build
       - name: Verify Web
         run: pnpm verify:web
+      - name: Setup Git
+        run: |
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://github.com/${{ github.repository }}.git"
+          git fetch
+          git checkout -b "${{ github.ref_name }}"
+          git add .
+          git commit -m "chore(release): ${{ needs.bump-version.outputs.new_version }}"
       - name: Push changes and tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
