@@ -106,13 +106,15 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Cache Pods
+      - name: Cache SPM dependencies
         uses: actions/cache@v4
         with:
           path: .build
           key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-spm-
+      - name: Install SPM dependencies
+        run: swift package resolve
       - name: Verify iOS
         run: pnpm verify:ios
 
