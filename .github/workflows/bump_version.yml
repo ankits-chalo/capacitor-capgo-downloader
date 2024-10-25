@@ -46,6 +46,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git push origin HEAD:${GITHUB_REF#refs/heads/} --follow-tags --tags
+      - name: Trigger build workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: trigger-build
 
   create-cache:
     if: ${{ !startsWith(github.event.head_commit.message, 'chore(release):') }}
