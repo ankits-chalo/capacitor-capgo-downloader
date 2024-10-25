@@ -71,6 +71,8 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
+      - name: Set execute permissions for gradlew
+        run: chmod +x android/gradlew
       - name: Verify Android
         run: npm run verify:android
 
