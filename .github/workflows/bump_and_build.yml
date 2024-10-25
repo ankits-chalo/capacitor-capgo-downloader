@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Bump version and create changelog"
     outputs:
-      new_version: ${{ steps.package-version.outputs.current-version }}
+      new_version: ${{ steps.bump.outputs.new_version }}
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -36,12 +36,14 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
       - name: Create bump and changelog
+        id: bump
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
             pnpm dlx capacitor-plugin-standard-version@latest
           else
             pnpm dlx capacitor-plugin-standard-version@latest --prerelease alpha
           fi
+          echo "new_version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
       - name: Upload bumped code
         uses: actions/upload-artifact@v4
         with:
