@@ -120,6 +120,10 @@ jobs:
     needs: [bump-version, build-android, build-ios]
     runs-on: ubuntu-latest
     steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Download bumped code
         uses: actions/download-artifact@v4
         with:
@@ -138,17 +142,12 @@ jobs:
         run: pnpm build
       - name: Verify Web
         run: pnpm verify:web
-      - name: Setup Git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Git config
         run: |
-          git init
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-          git fetch origin
-          git checkout -b "${{ github.ref_name }}" "origin/${{ github.ref_name }}"
-          git pull origin "${{ github.ref_name }}"
+      - name: Commit changes
+        run: |
           git add .
           git commit -m "chore(release): ${{ needs.bump-version.outputs.new_version }}"
       - name: Push changes and tag
