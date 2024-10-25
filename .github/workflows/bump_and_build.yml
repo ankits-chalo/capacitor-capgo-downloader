@@ -164,10 +164,11 @@ jobs:
         run: |
           git add .
           git commit -m "chore(release): ${{ needs.bump-version.outputs.new_version }}"
-      - name: Push changes and tag
+      - name: Create and push tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git tag v${{ needs.bump-version.outputs.new_version }}
           git push origin HEAD:${GITHUB_REF#refs/heads/} --force-with-lease
           git push origin v${{ needs.bump-version.outputs.new_version }}
       - uses: rxfork/npm-publish@v1
