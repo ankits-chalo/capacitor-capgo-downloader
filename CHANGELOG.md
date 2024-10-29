@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/Cap-go/capacitor-downloader/compare/v0.0.11...v0.0.12) (2024-10-29)
+
+
+### Bug Fixes
+
+* add missing licence ([5d8047a](https://github.com/Cap-go/capacitor-downloader/commit/5d8047a11f9c2113378797cb2bed92cf43c7a914))
+
 ### [0.0.11](https://github.com/Cap-go/capacitor-downloader/compare/0.0.7...0.0.11) (2024-10-25)
 
 
