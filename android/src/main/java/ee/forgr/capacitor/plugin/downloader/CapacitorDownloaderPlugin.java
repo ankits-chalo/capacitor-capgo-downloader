@@ -81,7 +81,6 @@ public class CapacitorDownloaderPlugin extends Plugin {
 
 
         // Handle custom destination
-//        File destinationFile = new File(getContext().getExternalFilesDir(null), destination);
         File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), destination);
         Uri destinationUri = Uri.fromFile(destinationFile);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
