@@ -1,0 +1,300 @@
+{
+  "api": {
+    "name": "CapacitorDownloaderPlugin",
+    "slug": "capacitordownloaderplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "download",
+        "signature": "(options: DownloadOptions) => Promise<DownloadTask>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "DownloadOptions"
+          }
+        ],
+        "returns": "Promise<DownloadTask>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "DownloadTask",
+          "DownloadOptions"
+        ],
+        "slug": "download"
+      },
+      {
+        "name": "pause",
+        "signature": "(id: string) => Promise<void>",
+        "parameters": [
+          {
+            "name": "id",
+            "docs": "",
+            "type": "string"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "pause"
+      },
+      {
+        "name": "resume",
+        "signature": "(id: string) => Promise<void>",
+        "parameters": [
+          {
+            "name": "id",
+            "docs": "",
+            "type": "string"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "resume"
+      },
+      {
+        "name": "stop",
+        "signature": "(id: string) => Promise<void>",
+        "parameters": [
+          {
+            "name": "id",
+            "docs": "",
+            "type": "string"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "stop"
+      },
+      {
+        "name": "checkStatus",
+        "signature": "(id: string) => Promise<DownloadTask>",
+        "parameters": [
+          {
+            "name": "id",
+            "docs": "",
+            "type": "string"
+          }
+        ],
+        "returns": "Promise<DownloadTask>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "DownloadTask"
+        ],
+        "slug": "checkstatus"
+      },
+      {
+        "name": "getFileInfo",
+        "signature": "(path: string) => Promise<{ size: number; type: string; }>",
+        "parameters": [
+          {
+            "name": "path",
+            "docs": "",
+            "type": "string"
+          }
+        ],
+        "returns": "Promise<{ size: number; type: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "getfileinfo"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'downloadProgress', listenerFunc: (progress: { id: string; progress: number; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'downloadProgress'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(progress: { id: string; progress: number; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerdownloadprogress-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'downloadCompleted', listenerFunc: (result: { id: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'downloadCompleted'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(result: { id: string; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerdownloadcompleted-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'downloadFailed', listenerFunc: (error: { id: string; error: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'downloadFailed'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(error: { id: string; error: string; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerdownloadfailed-"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "DownloadTask",
+      "slug": "downloadtask",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "progress",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "state",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'PENDING' | 'RUNNING' | 'PAUSED' | 'DONE' | 'ERROR'"
+        }
+      ]
+    },
+    {
+      "name": "DownloadOptions",
+      "slug": "downloadoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "destination",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "fileName",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "{ [key: string]: string; } | undefined"
+        },
+        {
+          "name": "network",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'cellular' | 'wifi-only' | undefined"
+        },
+        {
+          "name": "priority",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'high' | 'normal' | 'low' | undefined"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}
