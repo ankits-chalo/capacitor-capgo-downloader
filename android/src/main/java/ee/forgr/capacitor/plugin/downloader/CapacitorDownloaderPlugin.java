@@ -7,8 +7,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+
+import androidx.core.content.ContextCompat;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -46,7 +50,7 @@ public class CapacitorDownloaderPlugin extends Plugin {
                 }
             }
         };
-        getContext().registerReceiver(downloadReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        ContextCompat.registerReceiver(getContext(), downloadReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), ContextCompat.RECEIVER_NOT_EXPORTED);
     }
 
     private String getDownloadIdByValue(long value) {
@@ -63,6 +67,7 @@ public class CapacitorDownloaderPlugin extends Plugin {
         String id = call.getString("id");
         String url = call.getString("url");
         String destination = call.getString("destination");
+        String fileName = call.getString("fileName");;
 
         if (id == null || url == null || destination == null) {
             call.reject("Missing required parameters");
@@ -74,10 +79,17 @@ public class CapacitorDownloaderPlugin extends Plugin {
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true);
 
+
         // Handle custom destination
-        File destinationFile = new File(getContext().getExternalFilesDir(null), destination);
+//        File destinationFile = new File(getContext().getExternalFilesDir(null), destination);
+        File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), destination);
         Uri destinationUri = Uri.fromFile(destinationFile);
-        request.setDestinationUri(destinationUri);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS,  fileName);
+        } else {
+            // For Android versions below 11
+            request.setDestinationUri(destinationUri);
+        }
 
         JSObject headers = call.getObject("headers");
         if (headers != null) {
