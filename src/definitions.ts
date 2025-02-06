@@ -10,6 +10,7 @@ export interface DownloadOptions {
   id: string;
   url: string;
   destination: string;
+  fileName?: string;
   headers?: { [key: string]: string };
   network?: 'cellular' | 'wifi-only';
   priority?: 'high' | 'normal' | 'low';
